@@ -1,7 +1,7 @@
 const path        = require('path')
     , fs          = require('fs')
     , os          = require('os')
-    , level       = require('level')
+    , level       = require('level-prebuilt')
     , gibberish   = require('echomunge/dir2gibberish').bind(null, path.join(__dirname, '../..'))
     , existing    = require('../../lib/setup-existing')
     , PassThrough = require('stream').PassThrough || require('readable-stream/passthrough')
