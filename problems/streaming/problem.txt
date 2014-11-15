@@ -1,28 +1,20 @@
-Write a program that prints all of the key/value pairs in a LevelDB
-store to the console. You will be provided with the location of the
-store as the first argument on the command-line.
+LevelDB ストア内の全てのキーと値のペアをコンソールに出力するプログラムを書いてください。ストアの位置がコマンドラインの第一引数として与えられます。
 
-Each entry should be printed on a new line to stdout in the form:
+各エントリは、以下のような形式で標準出力に出力してください。
 
 key=value
 
 ---------------------------------------------------------------------
-HINTS:
+ヒント:
 
-Since you don't know what the keys are in this exercise you can't
-use `get()`. Instead, you'll need to query the data store using
-a ReadStream.
+この練習問題には何のキーがあるかわからないので、`get()` を使うことはできません。かわりに ReadStream を使ってデータストアに問い合わせる必要があります。
 
-The `createReadStream()` method creates a standard Node object-
-stream where each chunk, or 'data' event, is an entry in the data
-store. Each data object has both 'key' and 'value' properties for
-the entry.
+`createReadStream()` メソッドは標準の Node のオブジェクトストリームを作成します。このストリームの各チャンク（'data' イベント）は、データストアの各エントリに対応しています。
 
-You can therefore stream the entire contents of the data store with:
+そのため、以下のようにデータストアの全ての内容をストリームすることができます:
 
   db.createReadStream().on('data', function (data) {
     // data.key and data.value
   })
 
-Also note that the 'error' event may also be emitted if there is an
-I/O error.
+I/O エラーがあった場合は 'error' イベントが発生することにも注意してください。
