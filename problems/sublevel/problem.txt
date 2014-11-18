@@ -1,41 +1,43 @@
+もうすでに使われているキーのコンフリクトを気にせずにデータを保存したい場合に
+クリーンなネームスペースが必要になる場合があるでしょう。
+
+その場合、クリーンなネームスペースを作成するために{bold}sublevel{/bold}が使えます！
+
 Sometimes you just need a clean namespace to fill up with junk without
 worrying about conflicting with existing keys in use.
 
 You can use {bold}sublevel{/bold} for creating clean namespaces!
 
-You can extend a db handle to use sublevel by doing:
+データベースハンドルを拡張してsublevelを使うには以下のようにします:
 
     var db = sub(level(...))
 
-Then you can call `db.sublevel()` to make a new sublevel.
+それから`db.sublevel()`を実行して新しいsublevelを作成してください。
 
-Just call `db.sublevel()` with a name and you get an object that acts
-just like a normal db handle except it lives in a namespace:
+`db.sublevel()`をsublevel名をつけて呼び出すだけで、ネームスペースを持つ、
+普通のデータベースハンドルのように振る舞うオブジェクトを受け取ることができます。
 
     var wizards = db.sublevel('wizards')
 
-To level up on this adventure, you will get a database path as the
-first command-line argument. Create 2 sublevels, one called "robots"
-and the other called "dinosaurs".
+今回は、一つめのコマンドライン引数としてデータベースのパスを受け取ります。
+二つのsublevelを作成し、一つは"robots"、もう一つは"dinosaurs"としてください。
 
-For each sublevel, create a key called "slogan". Set the {italic}slogan{/italic} for
-the dinosaurs sublevel to `'rawr'` and set the {italic}slogan{/italic} for the robots
-sublevel to `'beep boop'`.
+それらのsublevelにおいて、"slogan"というキーを作成し、dinosaursというsublevelの
+{italic}slogan{/italic}には`'rawr'`を、robotsのほうには`'beep boop'`をセットしてください。
 
 ----------------------------------------------------------------------
-HINTS:
+ヒント:
 
-Read more about sublevel here:
+sublevelに関してはこちらを参照ください:
   http://npm.im/level-sublevel
-Or off-line on your local filesystem:
+同じ物がローカルのファイルシステムにもあります:
   {rootdir}/docs/sublevel.html
 
-You will need to `npm install level-sublevel` to get started with this
-exercise.
+この章の課題をこなすため、`npm install level-sublevel`が必要になります。
 
-If you don't have an Internet connection, simply make a `node_modules`
-directory and copy the following directory into it:
+もしインターネット接続がない環境では `node_modules` ディレクトリを作成し、
+次のディレクトリをそこへコピーしてください。
   {rootdir}/node_modules/level-sublevel/
 
-To get output for debugging when running `levelmeup run program.js`
-you should use console.error instead of console.log.
+`levelmeup run program.js` を走らせた時にデバッグ出力を見たい場合、
+console.log ではなく、console.error を使ってください。
